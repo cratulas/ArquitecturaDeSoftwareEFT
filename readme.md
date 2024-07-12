@@ -13,7 +13,7 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 npm install -g @ionic/cli
 
 
-git clone https://github.com/cratulas/ArquitecturaDeSoftwareS3
+git clone https://github.com/cratulas/ArquitecturaDeSoftwareEFT
 cd tu-repositorio
 
 npm install
