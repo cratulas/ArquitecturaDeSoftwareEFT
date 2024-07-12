@@ -1,0 +1,20 @@
+.home-container {
+  text-align: center;
+  ion-card {
+    margin: 20px;
+  }
+  ion-img {
+    width: 100%;
+    height: auto;
+  }
+  ion-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  ion-card-subtitle {
+    font-size: 1.2rem;
+    color: var(--ion-color-medium);
+  }
+}
+
+

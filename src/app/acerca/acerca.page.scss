@@ -1,0 +1,21 @@
+ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+  }
+  
+  ion-card {
+    margin-bottom: 20px;
+  }
+  
+  ion-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  ion-card-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  

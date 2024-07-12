@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="cartItems.length > 0; else emptyCart">
+    <ion-item *ngFor="let item of cartItems">
+      <ion-thumbnail slot="start">
+        <img [src]="getProductById(item.productId)?.fotoUrl" alt="{{ getProductById(item.productId)?.nombre }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ getProductById(item.productId)?.nombre }}</h2>
+        <p>{{ getProductById(item.productId)?.precio | currency }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="cartItems.length > 0">
+    <ion-label>Total:</ion-label>
+    <ion-note slot="end">{{ total | currency }}</ion-note>
+  </ion-item>
+
+  <ion-button *ngIf="cartItems.length > 0" expand="full" (click)="clearCart()">Limpiar Carrito</ion-button>
+  <ion-button *ngIf="cartItems.length > 0" expand="full" (click)="goToPayment()">Ir al Pago</ion-button>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <img src="data:image/png;base64,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" alt="Carrito Vacío">
+      <p>Tu carrito está vacío.</p>
+      <ion-button expand="full" (click)="navigateToCatalog()">Ir al Catálogo</ion-button>
+    </div>
+  </ng-template>
+</ion-content>

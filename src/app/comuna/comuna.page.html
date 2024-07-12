@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comuna</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let comuna of comunas">
+      <ion-label>{{ comuna.nombre }}</ion-label>
+      <ion-button color="danger" (click)="deleteComuna(comuna.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="floating">Nombre Comuna</ion-label>
+    <ion-input [(ngModel)]="newComuna.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Región</ion-label>
+    <ion-select [(ngModel)]="newComuna.idRegion">
+      <ion-select-option *ngFor="let region of regiones" [value]="region.id">{{ region.nombre }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="full" (click)="addComuna()">Agregar Comuna</ion-button>
+</ion-content>

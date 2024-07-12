@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Catalog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail slot="start">
+        <img [src]="product.fotoUrl" alt="{{ product.nombre }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.nombre }}</h2>
+        <p>{{ product.precio | currency }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="addToCart(product.id, 1)">Agregar al carro</ion-button>
+      
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="goToCarrito()">Mi carrito</ion-button>
+</ion-content>

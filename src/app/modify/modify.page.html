@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modify User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="updateUser()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="user.nombreUsuario" name="nombreUsuario" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input [(ngModel)]="user.direccionUsuario" name="direccionUsuario" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input [(ngModel)]="user.telefonoUsuario" name="telefonoUsuario" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Comuna</ion-label>
+      <ion-select [(ngModel)]="user.idComuna" name="idComuna" required>
+        <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.id">{{ comuna.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="full" type="submit">Modificar</ion-button>
+  </form>
+</ion-content>

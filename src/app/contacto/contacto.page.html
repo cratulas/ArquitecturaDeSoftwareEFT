@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input type="text" name="nombre" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Correo Electrónico</ion-label>
+              <ion-input type="email" name="email" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Mensaje</ion-label>
+              <ion-textarea name="mensaje" ngModel required></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <ion-button type="submit" expand="full" [disabled]="!contactForm.form.valid">Enviar</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

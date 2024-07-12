@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-label>
+        <h2>{{ product.nombre }}</h2>
+        <p>{{ product.precio | currency }}</p>
+        <img [src]="product.fotoUrl" alt="{{ product.nombre }}" style="width: 100px; height: auto;">
+      </ion-label>
+      <ion-button (click)="handleEditProduct(product)">Edit</ion-button>
+      <ion-button color="danger" (click)="handleDeleteProduct(product.id)">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="floating">Nombre producto</ion-label>
+    <ion-input #productName></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio producto</ion-label>
+    <ion-input type="number" #productPrice></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Proveedor</ion-label>
+    <ion-select #productSupplier>
+      <ion-select-option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ supplier.nombre }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Url foto producto</ion-label>
+    <ion-input #productPhotoUrl></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="handleAddProduct()">Guardar producto</ion-button>
+</ion-content>

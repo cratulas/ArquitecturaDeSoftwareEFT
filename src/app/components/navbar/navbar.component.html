@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="navbar-large">
+      <ion-button (click)="navigateTo('/home')">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button>
+      <ion-button (click)="navigateTo('/catalog')">
+        <ion-icon name="list-outline"></ion-icon>
+        Catalog
+      </ion-button>
+      <ion-button (click)="navigateTo('/cart')">
+        <ion-icon name="cart-outline"></ion-icon>
+        Carro
+      </ion-button>
+      <ng-container *ngIf="isAdmin">
+        <ion-button (click)="navigateTo('/comuna')">
+          <ion-icon name="business-outline"></ion-icon>
+          Comuna
+        </ion-button>
+        <ion-button (click)="navigateTo('/region')">
+          <ion-icon name="map-outline"></ion-icon>
+          Region
+        </ion-button>
+        <ion-button (click)="navigateTo('/product')">
+          <ion-icon name="business-outline"></ion-icon>
+          Producto
+        </ion-button>
+        <ion-button (click)="navigateTo('/supplier')">
+          <ion-icon name="business-outline"></ion-icon>
+          Proveedor
+        </ion-button>
+      </ng-container>
+    </ion-buttons>
+
+    <ion-buttons slot="start" class="navbar-small">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button *ngIf="isAuthenticated" (click)="navigateTo('/modify')">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isAuthenticated" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="!isAuthenticated" (click)="navigateTo('/login')">
+        <ion-icon name="log-in-outline"></ion-icon>
+        Login
+      </ion-button>
+      <ion-button *ngIf="!isAuthenticated" (click)="navigateTo('/register')">
+        <ion-icon name="person-add-outline"></ion-icon>
+        Registro
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu content-id="main-content" side="start">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item button (click)="navigateTo('/home')">
+        <ion-icon slot="start" name="home-outline"></ion-icon>
+        Home
+      </ion-item>
+      <ion-item button (click)="navigateTo('/catalog')">
+        <ion-icon slot="start" name="list-outline"></ion-icon>
+        Catalogo
+      </ion-item>
+      <ion-item button (click)="navigateTo('/cart')">
+        <ion-icon slot="start" name="cart-outline"></ion-icon>
+        Carro
+      </ion-item>
+      <ng-container *ngIf="isAdmin">
+        <ion-item button (click)="navigateTo('/comuna')">
+          <ion-icon slot="start" name="business-outline"></ion-icon>
+          Comuna
+        </ion-item>
+        <ion-item button (click)="navigateTo('/region')">
+          <ion-icon slot="start" name="map-outline"></ion-icon>
+          Region
+        </ion-item>
+        <ion-item button (click)="navigateTo('/product')">
+          <ion-icon slot="start" name="business-outline"></ion-icon>
+          Producto
+        </ion-item>
+        <ion-item button (click)="navigateTo('/supplier')">
+          <ion-icon slot="start" name="business-outline"></ion-icon>
+          Proveedor
+        </ion-item>
+      </ng-container>
+      <ion-item *ngIf="isAuthenticated" button (click)="navigateTo('/modify')">
+        <ion-icon slot="start" name="create-outline"></ion-icon>
+        Modificar
+      </ion-item>
+      <ion-item *ngIf="isAuthenticated" button (click)="logout()">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        Logout
+      </ion-item>
+      <ion-item *ngIf="!isAuthenticated" button (click)="navigateTo('/login')">
+        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+        Login
+      </ion-item>
+      <ion-item *ngIf="!isAuthenticated" button (click)="navigateTo('/register')">
+        <ion-icon slot="start" name="person-add-outline"></ion-icon>
+        Registro
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
